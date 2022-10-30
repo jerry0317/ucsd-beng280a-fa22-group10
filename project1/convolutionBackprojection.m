@@ -39,7 +39,7 @@ function imga = convolutionBackprojection(sg, xp, theta, filter)
         t = theta(i);
         projed = repmat(sgc(:,i), 1, nd).';
         projedr = imrotate(projed, t, 'bilinear', 'crop');
-        img_fbp = img_fbp + projedr;
+        img_fbp = img_fbp + (projedr / nt);
     end
 
     % Find the actual Cartesian coordinates for the points (shift to center)

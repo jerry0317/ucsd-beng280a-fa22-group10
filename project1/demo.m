@@ -1,14 +1,15 @@
 %% Load any RGB Image to Grayscale
-I = imread('sample_images/c1.jpg');
-I = rgb2gray(I);
+I = imread('sample_images/c2.jpg');
+if size(I,3)==3
+    I = rgb2gray(I);
+end
 
 figure(1); imagesc(I);title('original image'); axis('equal'); colormap('gray');
 
 %% Use Radon Transform to Generate Sinogram
 first_projection_angle=0;
 last_projection_angle=180;
-delta_theta=2.0;
-data_peak_to_noise_ratio=10.0;
+delta_theta=0.5;
 theta=first_projection_angle:delta_theta:last_projection_angle;
 [sg,xp]=radon(I,theta);
 figure(2); imagesc(sg); title('projections g(l,theta) - Radon Transform'); axis('square'); xlabel('projection angle theta'); ylabel('linear displacement - l');
