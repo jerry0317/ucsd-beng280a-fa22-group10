@@ -49,7 +49,7 @@ end
 [xx, yy] = meshgrid((1:nd) - (nd / 2));
 
 % Interpolate the points to a smaller canvas (the original image size)
-img_fbpr = griddata(xx, yy, img_fbp, posX, posY);
+img_fbpr = interp2(xx, yy, img_fbp, posX, posY);
 
 % Take the magnitude to get the final image
 imga = abs(img_fbpr);
