@@ -12,9 +12,6 @@ function [output,selected,Wkxy,weighted,If_selected,If_weighted] = pifft_homodyn
     end
     assert(all(mod(size(I_f),2) == [0,0]));
 
-    I_f1 = zeros(size(I_f));
-    I_f1(ymin:ymax, xmin:xmax) = I_f(ymin:ymax, xmin:xmax);
-
     if xmax == -1
         xmax = size(I_f,2);
     end
@@ -22,6 +19,9 @@ function [output,selected,Wkxy,weighted,If_selected,If_weighted] = pifft_homodyn
     if ymax == -1
         ymax = size(I_f,1);
     end
+
+    I_f1 = zeros(size(I_f));
+    I_f1(ymin:ymax, xmin:xmax) = I_f(ymin:ymax, xmin:xmax);
 
 %     assert((xmin == 1 || xmax == size(I_f,2)));
 %     assert((ymin == 1 || ymax == size(I_f,1)));
