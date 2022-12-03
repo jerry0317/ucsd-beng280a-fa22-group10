@@ -27,7 +27,7 @@ function [output,padded,selected,If_padded,If_selected] = pifft_phase_correction
     ypad = max(ymin, size(I_f,1)-ymax);
 
     I_f2 = zeros(size(I_f));
-    I_f2(ypad:size(I_f,1)-ypad+1, xpad:size(I_f,2)-xpad+1) = I_f(ypad:size(I_f,1)-ypad+1, xpad:size(I_f,2)-xpad+1);
+    I_f2(ypad+1:size(I_f,1)-ypad, xpad+1:size(I_f,2)-xpad) = I_f(ypad+1:size(I_f,1)-ypad, xpad+1:size(I_f,2)-xpad);
     selected = I_f2;
 
     I_if2 = fftshift(ifft2(ifftshift(I_f2)));

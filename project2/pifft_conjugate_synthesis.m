@@ -24,15 +24,15 @@ function [output, conjsyn] = pifft_conjugate_synthesis(Ip, xmin, xmax, ymin, yma
     I_f2 = I_f;
 
     if xmin > size(I_f,2)-xmax
-        I_f2(:,1:xpad) = rot90(conj(I_f(:,size(I_f,2)-xpad+1:end)),2);
+        I_f2(:,1:xpad+1) = rot90(conj(I_f(:,size(I_f,2)-xpad:end)),2);
     else
-        I_f2(:,size(I_f,2)-xpad+1:end) = rot90(conj(I_f(:,1:xpad)),2);
+        I_f2(:,size(I_f,2)-xpad:end) = rot90(conj(I_f(:,1:xpad+1)),2);
     end
 
     if ymin > size(I_f,1)-ymax
-        I_f2(1:ypad,:) = rot90(conj(I_f(size(I_f,1)-ypad+1:end,:)),2);
+        I_f2(1:ypad+1,:) = rot90(conj(I_f(size(I_f,1)-ypad:end,:)),2);
     else
-        I_f2(size(I_f,1)-ypad+1:end,:) = rot90(conj(I_f(1:ypad,:)),2);
+        I_f2(size(I_f,1)-ypad:end,:) = rot90(conj(I_f(1:ypad+1,:)),2);
     end
 
     conjsyn = I_f2;

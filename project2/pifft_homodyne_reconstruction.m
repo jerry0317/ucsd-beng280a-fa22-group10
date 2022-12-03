@@ -1,4 +1,4 @@
-function [output,selected,Wkxy,weighted,If_selected,If_weighted] = pifft_homodyne_reconstruction(I_f, xmin, xmax, ymin, ymax, weight_func, weight_smooth, weight_smooth_factor)
+function [output,selected,Wkxy,weighted,If_selected,If_weighted,Wx1d,Wy1d] = pifft_homodyne_reconstruction(I_f, xmin, xmax, ymin, ymax, weight_func, weight_smooth, weight_smooth_factor)
     % NOTE: The actual output is real(output)
     arguments
         I_f; % Input k-image
